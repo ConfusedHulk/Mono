@@ -1,0 +1,31 @@
+{
+  "name": "automatedtest",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "loginLogout": "mocha scripts/Login-Suite/login-logout.test.mjs",
+    "loginFailure": "mocha scripts/Failure-Suite/login-failure.test.mjs",
+    "loginPersistance": "mocha scripts/Login-Suite/login-session-persistence.test.mjs",
+    "createAlbum": "mocha scripts/Gallery-Suite/create-album.test.mjs",
+    "uploadPhoto": "mocha scripts/Gallery-Suite/upload-photo.test.mjs",
+    "photoSearch": "mocha scripts/Gallery-Suite/photo-search.test.mjs",
+    "emptySearch": "mocha scripts/Failure-Suite/empty-input-search.test.mjs",
+    "noFileUpload": "mocha scripts/Failure-Suite/upload-without-file.test.mjs",
+    "whitespaceOnlySearch": "mocha scripts/Failure-Suite/whitespace-only-search.test.mjs",
+    "createAlbumWithoutName": "mocha scripts/Failure-Suite/create-album-noname.test.mjs",
+    "unsupportedFile": "mocha scripts/Failure-Suite/upload-unsupported-file.test.mjs",
+    "loginSuite": "mocha scripts/Login-Suite/*.test.mjs",
+    "gallerySuite": "mocha scripts/Gallery-Suite/*.test.mjs",
+    "failureSuite": "mocha scripts/Failure-Suite/*.test.mjs",
+    "testAll": "mocha scripts/Login-Suite/*.test.mjs scripts/Gallery-Suite/*.test.mjs scripts/Failure-Suite/*.test.mjs"
+  },
+  "dependencies": {
+    "chai": "^4.3.7",
+    "chromedriver": "136.0.0",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.6.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
