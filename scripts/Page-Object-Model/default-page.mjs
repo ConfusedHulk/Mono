@@ -96,13 +96,6 @@ export default class DefaultPage {
         );
     }
 
-    async saveAlbumButton() {
-        return await this.driver.wait(
-            until.elementLocated(By.css('button.btn.btn--primary.btn--med[type="submit"]')),
-            10000
-        );
-    }
-
     async uploadImagePlaceholder() {
         return await this.driver.wait(
             until.elementLocated(By.css('.placeholder.cur--pointer')),
@@ -227,7 +220,7 @@ export default class DefaultPage {
 
         const __filename = fileURLToPath(import.meta.url);
         const __dirname = path.dirname(__filename);
-        const imagePath = path.resolve(`${__dirname}/../../images/${photoName}.jpg`);
+        const imagePath = path.resolve(`${__dirname}/../../images/test-images/${photoName}.jpg`);
         const fileInput = await this.driver.findElement(By.css('input[type="file"]'));
         await fileInput.sendKeys(imagePath);
 
