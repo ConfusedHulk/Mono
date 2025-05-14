@@ -69,7 +69,11 @@ describe('Upload Photo Test', function () {
     });
 
     it('should click on album', async () => {
+        await driver.wait(until.elementLocated(By.css('.thumbnail')), 10000);
+
         const items = await driver.findElements(By.css('.thumbnail'));
+
+        let clicked = false;
 
         for (const item of items) {
             const imgDiv = await item.findElement(By.css('.thumbnail__img'));
@@ -79,6 +83,7 @@ describe('Upload Photo Test', function () {
                 const actions = driver.actions({ async: true });
                 await actions.move({ origin: item }).perform();
                 await item.click();
+                clicked = true;
                 break;
             }
         }

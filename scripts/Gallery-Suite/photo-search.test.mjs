@@ -40,7 +40,7 @@ afterEach(async function () {
     }
 });
 
-describe('Upload Photo Test', function () {
+describe('Photo Search Test', function () {
     it('should log', async () => {
         await page.login(ENV.LOGIN_USERNAME, ENV.LOGIN_PASSWORD);
     });
@@ -107,6 +107,8 @@ describe('Upload Photo Test', function () {
 
         const items = await driver.findElements(By.css('.thumbnail'));
 
+        let clicked = false;
+
         for (const item of items) {
             const imgDiv = await item.findElement(By.css('.thumbnail__img'));
             const style = await imgDiv.getAttribute('style');
@@ -115,6 +117,7 @@ describe('Upload Photo Test', function () {
                 const actions = driver.actions({ async: true });
                 await actions.move({ origin: item }).perform();
                 await item.click();
+                clicked = true;
                 break;
             }
         }
