@@ -123,7 +123,7 @@ npm run unsupportedFile
 
 - **`whitespaceOnlySearch`**  
   Enters only whitespace characters in the search bar. The test ensures that no search is performed. UI verification.
-
+  This test will fail on purpose.
 
 
 
