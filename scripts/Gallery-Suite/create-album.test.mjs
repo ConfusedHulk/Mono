@@ -56,7 +56,7 @@ describe('Create Album Test', function () {
     });
 
     it ('should upload album photo', async () => {
-        await page.uploadPhoto(albumPicture, true);
+        await page.uploadPhoto(albumPicture);
 
         const albumNameText = await page.waitAndFind(page.albumNameText);
         const displayedText = await albumNameText.getText();

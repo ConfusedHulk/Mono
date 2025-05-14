@@ -10,6 +10,8 @@ import fs from "node:fs";
 let driver;
 let page;
 const albumName = 'Album Test';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 before(async function () {
     this.timeout(30000);
@@ -25,8 +27,6 @@ after(async () => {
 
 afterEach(async function () {
     if (this.currentTest.state === 'failed') {
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = path.dirname(__filename);
         const timestamp = new Date().toISOString().split('T')[0];
         const testName = this.currentTest.title.replace(/\s+/g, '-');
 
@@ -54,8 +54,6 @@ describe('Upload Unsupported File Test', function () {
     });
 
     it ('should upload unsupported album photo and validate', async () => {
-        const __filename = fileURLToPath(import.meta.url);
-        const __dirname = path.dirname(__filename);
         const imagePath = path.resolve(`${__dirname}/../../images/test-images/UnsupportedFile.png`);
 
         const fileInput = await driver.findElement(By.css('input[type="file"]'));
